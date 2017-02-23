@@ -5,8 +5,13 @@ library(stringr)
 library(tidyr)
 library(ggplot2)
 
+DAILY_PATH = "Desktop/Datathon/data/The_Daily_Mail/232837/categories/daily232837_filter_Environment.csv"
+GUARDIAN_PATH = "Desktop/Datathon/data/The_Guardian/232837/categories/news_theguardian_filter_Environment.csv"
+INDEPENDENT_PATH = "Desktop/Datathon/data/The_Independent/232837/categories/news_indepedent_filter_Environment.csv"
+TELEGRAPH_PATH = "Desktop/Datathon/data/The_Telegraph/232837/categories/telegraph232837_filter_Environment.csv"
+
 # read news articles
-news <- read.csv("Desktop/Datathon/data/The_Daily_Mail/232837/categories/daily232837_filter_Environment.csv", header = TRUE, sep = ",")
+news <- read.csv(DAILY_PATH, header = TRUE, sep = ",")
 
 # seperate content column
 #news_content <- news['content']
@@ -29,13 +34,10 @@ news_sentiment <- t %>%
   mutate(sentiment = positive - negative)
 
 # sentiment score for the corpus
-daily_mail_score <- sum(news_sentiment[5])
-
-
-
+daily_mail_score <- sum(news_sentiment[5]) / nrow(t)
 
 # read news articles
-news <- read.csv("Desktop/Datathon/data/The_Guardian/232837/categories/news_theguardian_filter_Environment.csv", header = TRUE, sep = ",")
+news <- read.csv(GUARDIAN_PATH, header = TRUE, sep = ",")
 
 # seperate content column
 #news_content <- news['content']
@@ -58,10 +60,10 @@ news_sentiment <- t %>%
   mutate(sentiment = positive - negative)
 
 # sentiment score for the corpus
-guardian_score <- sum(news_sentiment[5])
+guardian_score <- sum(news_sentiment[5]) / nrow(t)
 
 # read news articles
-news <- read.csv("Desktop/Datathon/data/The_Independent/232837/categories/news_indepedent_filter_Environment.csv", header = TRUE, sep = ",")
+news <- read.csv(INDEPENDENT_PATH, header = TRUE, sep = ",")
 
 # seperate content column
 #news_content <- news['content']
@@ -84,10 +86,10 @@ news_sentiment <- t %>%
   mutate(sentiment = positive - negative)
 
 # sentiment score for the corpus
-independent_score <- sum(news_sentiment[5])
+independent_score <- sum(news_sentiment[5]) / nrow(t)
 
 # read news articles
-news <- read.csv("Desktop/Datathon/data/The_Telegraph/232837/categories/telegraph232837_filter_Environment.csv", header = TRUE, sep = ",")
+news <- read.csv(TELEGRAPH_PATH, header = TRUE, sep = ",")
 
 # seperate content column
 #news_content <- news['content']
@@ -110,7 +112,7 @@ news_sentiment <- t %>%
   mutate(sentiment = positive - negative)
 
 # sentiment score for the corpus
-telegraph_score <- sum(news_sentiment[5])
+telegraph_score <- sum(news_sentiment[5]) / nrow(t)
 
 paper_name = c("daily_mail", "guardian", "independent", "telegraph")
 sentiment_scores <- c(daily_mail_score, guardian_score, independent_score, telegraph_score)
