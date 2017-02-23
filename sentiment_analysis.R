@@ -3,12 +3,18 @@ library(janeaustenr)
 library(dplyr)
 library(stringr)
 library(tidyr)
-library(ggplot2)
+# library(ggplot2)
 
-DAILY_PATH = "Desktop/Datathon/data/The_Daily_Mail/232837/categories/daily232837_filter_Environment.csv"
-GUARDIAN_PATH = "Desktop/Datathon/data/The_Guardian/232837/categories/news_theguardian_filter_Environment.csv"
-INDEPENDENT_PATH = "Desktop/Datathon/data/The_Independent/232837/categories/news_indepedent_filter_Environment.csv"
-TELEGRAPH_PATH = "Desktop/Datathon/data/The_Telegraph/232837/categories/telegraph232837_filter_Environment.csv"
+# DAILY_PATH = "Desktop/Datathon/data/The_Daily_Mail/232837/categories/daily232837_filter_Environment.csv"
+# GUARDIAN_PATH = "Desktop/Datathon/data/The_Guardian/232837/categories/news_theguardian_filter_Environment.csv"
+# INDEPENDENT_PATH = "Desktop/Datathon/data/The_Independent/232837/categories/news_indepedent_filter_Environment.csv"
+# TELEGRAPH_PATH = "Desktop/Datathon/data/The_Telegraph/232837/categories/telegraph232837_filter_Environment.csv"
+
+DAILY_PATH = "daily.csv"
+GUARDIAN_PATH = "theguardian.csv"
+INDEPENDENT_PATH = "independent.csv"
+TELEGRAPH_PATH = "telegraph.csv"
+
 
 # read news articles
 news <- read.csv(DAILY_PATH, header = TRUE, sep = ",")
