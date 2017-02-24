@@ -120,5 +120,5 @@ news_sentiment <- t %>%
 # sentiment score for the corpus
 telegraph_score <- sum(news_sentiment[5]) / nrow(t)
 
-paper_name = c("The_Daily_Mail", "The_Guardian", "The_Independent", "The_Telegraph")
+paper_name = c("Daily Mail", "The Guardian", "The Independent", "The Telegraph")
 sentiment_scores <- c(daily_mail_score, guardian_score, independent_score, telegraph_score)

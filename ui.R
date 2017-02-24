@@ -2,7 +2,7 @@
 # package (which generally comes preloaded).
 library(datasets)
 
-setwd(dirname(getwd()))
+#setwd(dirname(getwd()))
 source("basic_stat3.R")
 source("wordcloud.R")
 
@@ -27,7 +27,7 @@ navbarPage("TEAM2",
                                                "Maximum Number of Words:",
                                                min = 1,  max = 300,  value = 100)
                                  ),
-
+                                 
                                  # Show Word Cloud
                                  mainPanel(
                                    plotOutput("wordCloud")
@@ -35,16 +35,15 @@ navbarPage("TEAM2",
                                )
                                ),
                       
-                      tabPanel("# Articles / Paper",
-                               sidebarLayout(
-                                 titlePanel("# Articles / Paper"),      
+                      tabPanel("Number of articles / Paper",
+                               sidebarLayout(      
                                  
                                  # Define the sidebar with one input
                                  sidebarPanel(
                                    # selectInput("paper", "Paper:", 
                                    #             choices=colnames(YEARLY_COUNTS)),
                                    # hr(),
-                                   helpText("The number of articles of each paper")
+                                   helpText("Number of articles / paper")
                                  ),
                                  
                                  # Create a spot for the barplot
@@ -54,16 +53,15 @@ navbarPage("TEAM2",
                                )
                                ),
                       
-                      tabPanel("# Articles / Year", 
+                      tabPanel("Number of articles / Year", 
                                sidebarLayout(      
-                                 titlePanel("# Articles / Year"),  
                                  
                                  # Define the sidebar with one input
                                  sidebarPanel(
                                    selectInput("paper", "Choose a newspaper:", 
                                                choices=colnames(YEARLY_COUNTS)),
                                    hr(),
-                                   helpText("The number of articles of each paper per year")
+                                   helpText("Yearly counts of articles in each of the newspapers.")
                                  ),
                                  
                                  # Create a spot for the barplot
@@ -73,12 +71,12 @@ navbarPage("TEAM2",
                                  
                                ))),
            
-           #tabPanel("Topic modeling"),
+           tabPanel("Topic modeling"),
            
-           tabPanel("Sentiment Analysis",
-                    titlePanel("Sentiment Analysis"),
+           tabPanel("Sentiment analysis",
+                    titlePanel("Sentiment analysis results!"),
                     sidebarPanel(
-                            helpText("Sentiment analysis results for each paper")
+                            helpText("Sentiment analysis of articles categorised as related to envrionment and with the word 'disaster' in title.")
                             # selectInput("region", "Region:",
                             #             choices=colnames(WorldPhones)),
                             # hr(),
