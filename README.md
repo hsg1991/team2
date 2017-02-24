@@ -2,8 +2,6 @@
 Bartosz Paszcza, Alan Ponce (SOTON)
 Brian Kangwook Lee, Sanggyu Han (KAIST)
 
-Team project description:
-
 # Motivation
 - Newspapers have their own editorial policy
 - By the editorial policy, the content and the attitude of news articles can be differed
