@@ -23,3 +23,12 @@ https://paszczak.shinyapps.io/disaster_in_newspapers2/
 - Exploratory investigation
 - Sentiment analysis
 
+# HTML file viewer
+
+https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html
+
+- LDA on papers filtered by keyword 'disaster'
+
+https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html
+
+- LDA on papers filtered by category 'environment'
