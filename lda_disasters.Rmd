@@ -1,0 +1,290 @@
+---
+title: "Topic Modeling"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    source_code: embed
+---
+
+```{r setup, include=FALSE}
+
+#To clean up the memory of current R session
+rm(list = ls(all=TRUE))
+
+setwd("/Users/user/Documents/Phd/Documents/Academic/Datathon/Code/book/visualisations/")
+
+#Libraries
+library(ggplot2)  
+library(tm)
+library(class) # knn() is in the class packages
+library(caret) # confusionMatrix is in the caret package
+library(rdian)
+#library(qdap) # Quantitative discourse analysis of transcripts.
+library(qdapDictionaries)
+library(topicmodels)
+#library(tm.plugin.webmining)
+library(SnowballC)
+library(klaR)
+library(MASS)
+#library(RWeka)
+library(readr)
+library(tidytext)
+library(wordcloud)
+#library(openNLP)
+library(cluster)
+#library(wordnet)
+library(plyr)
+library(dplyr) # Data wrangling, pipe operator %>%().
+library(rJava)
+library(RTextTools)
+library(RColorBrewer) # Generate palette of colours for plots.
+library(scales) # Include commas in numbers.
+library(Rgraphviz) # Correlation plots.
+library(magrittr) # chaining commands with a new forward-pipe operator, %>%
+
+library(qdapRegex)
+library(stringr)
+library(tidyr)
+
+library(lsa)
+library(d3heatmap)
+library(RColorBrewer)
+library(ggrepel)
+library(slam)
+
+#Sys.setenv(WNHOME = "/usr/local/Cellar/wordnet/3.1/")
+#setDict("/usr/local/Cellar/wordnet/3.1/")
+
+library(knitr)
+library(d3heatmap)
+library(flexdashboard)
+
+#LDA Visualizations
+#Libraries
+library(lda)
+library(LDAvis)
+library(LDAvisData)
+
+##########################  The Guardian ##########################
+
+load("data/lda/guardianDisasters.RData")
+
+#guardianTM <- read_csv("topic_modeling/guardianTM.csv")
+#attach(guardianTM)
+
+# Number of topics in each document
+res_topics = as.matrix(topics(res))
+#print(res_topics)
+
+# Top 30 terms
+res_terms = as.matrix(terms(res, 30))
+print(res_terms)
+
+# Converting LDA model to DF
+res_termsDF = as.data.frame(res_terms)
+
+# Show topic probabilities. Rows are documents and Columns are the topics.
+res_topicProbs = as.data.frame(res@gamma)
+#print(cbind(rownames(res_topics), res_topicProbs))
+
+# Convert to matrix
+topic_probs <- data.matrix(res_topicProbs)  
+
+# Set column and row names
+colnames(topic_probs) <- c("Football", "Pollution", "Politics", "Nuclear/Plane")
+rownames(topic_probs) <- rownames(res_topics)
+
+##########################  The Independent ##########################
+
+load("data/lda/indep_resDisasters.RData")
+
+# Number of topics in each document
+res_topics_I = as.matrix(topics(indep_res))
+#print(res_topics_I)
+
+# Top 30 terms
+res_terms_I = as.matrix(terms(indep_res, 30))
+print(res_terms_I)
+
+# Converting LDA model to DF
+res_termsDF_I = as.data.frame(res_terms_I)
+
+# Show topic probabilities. Rows are documents and Columns are the topics.
+res_topicProbs_I = as.data.frame(indep_res@gamma)
+#print(cbind(rownames(res_topics), res_topicProbs))
+
+# Convert to matrix
+topic_probs_I <- data.matrix(res_topicProbs_I)  
+
+# Set column and row names
+colnames(topic_probs_I) <- c("Football", "Mixed", "Plane", "Politics")
+rownames(topic_probs_I) <- rownames(res_topics_I)
+
+##########################  The Telegraph ##########################
+
+load("data/lda/telegraph_resDisasters.RData")
+
+# Number of topics in each document
+res_topics_T = as.matrix(topics(telegraph_res))
+#print(res_topics_I)
+
+# Top 30 terms
+res_terms_T = as.matrix(terms(telegraph_res, 30))
+print(res_terms_T)
+
+# Converting LDA model to DF
+res_termsDF_T = as.data.frame(res_terms_T)
+
+# Show topic probabilities. Rows are documents and Columns are the topics.
+res_topicProbs_T = as.data.frame(telegraph_res@gamma)
+#print(cbind(rownames(res_topics), res_topicProbs))
+
+# Convert to matrix
+topic_probs_T <- data.matrix(res_topicProbs_T)  
+
+# Set column and row names
+colnames(topic_probs_T) <- c("Politics/Business", "Football", "Plane/Refugees", "Politics/Nuclear")
+rownames(topic_probs_T) <- rownames(res_topics_T)
+
+##########################  The Daily Mail ##########################
+
+load("data/lda/dailyDisasters.RData")
+
+# Number of topics in each document
+res_topics_D = as.matrix(topics(dailyMail_res))
+#print(res_topics_I)
+
+# Top 30 terms
+res_terms_D = as.matrix(terms(dailyMail_res, 30))
+print(res_terms_D)
+
+# Converting LDA model to DF
+res_termsDF_D = as.data.frame(res_terms_D)
+
+# Show topic probabilities. Rows are documents and Columns are the topics.
+res_topicProbs_D = as.data.frame(dailyMail_res@gamma)
+#print(cbind(rownames(res_topics), res_topicProbs))
+
+# Convert to matrix
+topic_probs_D <- data.matrix(res_topicProbs_D)  
+
+# Set column and row names
+colnames(topic_probs_D) <- c("Politics/Business", "Fashion", "Plane", "Mixed")
+rownames(topic_probs_D) <- rownames(res_topics_D)
+
+##########################  Cosine similarity ##########################
+
+#disaster_cs <- read_csv("data/cosine_similarity/") 
+
+```
+
+The Guardian
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Clustering by Topic {data-width=600}
+
+```{r}
+
+# Heat Map with Dendrogram ------------------------------------------------------------------------
+#d3heatmap(nba_players, scale = "column")
+
+names(res_termsDF) <- c("Football", "Pollution", "Politics", "Nuclear/Plane")
+  
+d3heatmap(topic_probs, scale = "column")
+
+```
+
+### Topics  {data-width=400}
+
+```{r}
+
+#knitr::kable(res_termsDF[1:20,c("G", "MIN", "PTS")])
+knitr::kable(res_termsDF)
+
+```
+
+The Independent
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Clustering by Topic {data-width=600}
+
+```{r}
+#To clean up the memory of current R session
+#rm(list = ls(all=TRUE))
+
+
+# Heat Map with Dendrogram ------------------------------------------------------------------------
+#d3heatmap(nba_players, scale = "column")
+
+names(res_termsDF_I) <- c("Football", "Mixed", "Plane", "Politics")
+  
+d3heatmap(topic_probs_I, scale = "column")
+
+```
+
+### Topics  {data-width=400}
+
+```{r}
+
+knitr::kable(res_termsDF_I)
+
+```
+
+The Telegraph
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Clustering by Topic {data-width=600}
+
+```{r}
+#To clean up the memory of current R session
+#rm(list = ls(all=TRUE))
+
+names(res_termsDF_T) <- c("Politics/Business", "Football", "Plane/Refugees", "Politics/Nuclear")
+  
+d3heatmap(topic_probs_T, scale = "column")
+
+```
+
+### Topics  {data-width=400}
+
+```{r}
+
+knitr::kable(res_termsDF_T)
+
+```
+
+The Daily Mail
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Clustering by Topic {data-width=600}
+
+```{r}
+#To clean up the memory of current R session
+#rm(list = ls(all=TRUE))
+
+names(res_termsDF_D) <- c("Politics/Business", "Fashion", "Plane", "Mixed")
+  
+d3heatmap(topic_probs_D, scale = "column")
+
+```
+
+### Topics  {data-width=400}
+
+```{r}
+
+knitr::kable(res_termsDF_D)
+
+```
