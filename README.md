@@ -18,17 +18,18 @@ How to analyze the difference between how media report the same issues (e.g. env
 
 # Shiny Server URL
 
-https://paszczak.shinyapps.io/disaster_in_newspapers2/
+Exploratory investigation & Sentiment analysis
 
-- Exploratory investigation
-- Sentiment analysis
+- https://paszczak.shinyapps.io/disaster_in_newspapers2/
+
 
 # HTML file viewer
 
-https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html
+LDA on papers filtered by keyword 'disaster'
 
-- LDA on papers filtered by keyword 'disaster'
+- https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html
 
-https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html
+LDA on papers filtered by category 'environment'
 
-- LDA on papers filtered by category 'environment'
+- https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html
+
