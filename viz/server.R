@@ -4,8 +4,9 @@
 
 # setwd(dirname(getwd()))
 source("sentiment_analysis.R")
-source("sentiment.r")
+source("sentiment.R")
 source("basic_stat3.R")
+source("wordcloud.R")
 
 # Rely on the 'WorldPhones' dataset in the datasets
 # package (which generally comes preloaded).
