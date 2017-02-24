@@ -4,14 +4,54 @@ library(datasets)
 
 setwd(dirname(getwd()))
 source("basic_stat3.R")
+source("wordcloud.R")
 
 
 navbarPage("TEAM2",
            navbarMenu("Exploratory investigation",
                       
-                      tabPanel("Word Cloud"),
+                      tabPanel("Word Cloud",
+                               # Application title
+                               titlePanel("Word Cloud"),
+                               sidebarLayout(
+                                 # Sidebar with a slider and selection inputs
+                                 sidebarPanel(
+                                   selectInput("selection", "Choose a newspaper:",
+                                               choices = papers),
+                                   actionButton("update", "Change"),
+                                   hr(),
+                                   sliderInput("freq",
+                                               "Minimum Frequency:",
+                                               min = 1,  max = 50, value = 15),
+                                   sliderInput("max",
+                                               "Maximum Number of Words:",
+                                               min = 1,  max = 300,  value = 100)
+                                 ),
+                                 
+                                 # Show Word Cloud
+                                 mainPanel(
+                                   plotOutput("wordCloud")
+                                 )
+                               )
+                               ),
                       
-                      tabPanel("Articles / Paper"),
+                      tabPanel("Articles / Paper",
+                               sidebarLayout(      
+                                 
+                                 # Define the sidebar with one input
+                                 sidebarPanel(
+                                   # selectInput("paper", "Paper:", 
+                                   #             choices=colnames(YEARLY_COUNTS)),
+                                   # hr(),
+                                   helpText("Number of articles / paper")
+                                 ),
+                                 
+                                 # Create a spot for the barplot
+                                 mainPanel(
+                                   plotOutput("histogram")  
+                                 )
+                               )
+                               ),
                       
                       tabPanel("Articles / Year", 
                                sidebarLayout(      

@@ -36,4 +36,36 @@ function(input, output) {
             xlab="Year")
   })
   
+  # Define a reactive expression for the document term matrix
+  terms <- reactive({
+    # Change when the "update" button is pressed...
+    input$update
+    # ...but not for anything else
+    isolate({
+      withProgress({
+        setProgress(message = "Processing corpus...")
+        getTermMatrix(input$selection)
+      })
+    })
+  })
+  
+  # wordcloud
+  wordcloud_rep <- repeatable(wordcloud)
+  
+  output$wordCloud <- renderPlot({
+    v <- terms()
+    wordcloud_rep(names(v), v, scale=c(4,0.5),
+                  min.freq = input$freq, max.words=input$max,
+                  colors=brewer.pal(8, "Dark2"))
+  })
+  
+  #plot showing number of articles per paper
+  output$histogram <- renderPlot({
+    # Render a barplot
+    barplot(height=papersArticleCountDF[,2],
+            names.arg=papersArticleCountDF[,1],
+            ylab="Number of Telephones",
+            xlab="Year")
+  })
+  
 }
