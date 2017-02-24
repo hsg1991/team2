@@ -19,9 +19,9 @@ navbarPage("TEAM2",
                                  # Define the sidebar with one input
                                  sidebarPanel(
                                    selectInput("paper", "Paper:", 
-                                               choices=colnames(article_matrix)),
+                                               choices=colnames(YEARLY_COUNTS)),
                                    hr(),
-                                   helpText("Data from AT&T (1961) The World's Telephones.")
+                                   helpText("Yearly counts of article")
                                  ),
                                  
                                  # Create a spot for the barplot

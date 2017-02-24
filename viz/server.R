@@ -30,9 +30,9 @@ function(input, output) {
   # Fill in the spot we created for a plot
   output$basic_stat3 <- renderPlot({
     # Render a barplot
-    barplot(article_matrix[,input$paper], 
+    barplot(YEARLY_COUNTS[,input$paper], 
             main=input$paper,
-            ylab="Number of Telephones",
+            ylab="Number of Articles",
             xlab="Year")
   })
   
