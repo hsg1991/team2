@@ -27,7 +27,7 @@ navbarPage("TEAM2",
                                                "Maximum Number of Words:",
                                                min = 1,  max = 300,  value = 100)
                                  ),
-                                 
+
                                  # Show Word Cloud
                                  mainPanel(
                                    plotOutput("wordCloud")
@@ -35,15 +35,16 @@ navbarPage("TEAM2",
                                )
                                ),
                       
-                      tabPanel("Articles / Paper",
-                               sidebarLayout(      
+                      tabPanel("# Articles / Paper",
+                               sidebarLayout(
+                                 titlePanel("# Articles / Paper"),      
                                  
                                  # Define the sidebar with one input
                                  sidebarPanel(
                                    # selectInput("paper", "Paper:", 
                                    #             choices=colnames(YEARLY_COUNTS)),
                                    # hr(),
-                                   helpText("Number of articles / paper")
+                                   helpText("The number of articles of each paper")
                                  ),
                                  
                                  # Create a spot for the barplot
@@ -53,15 +54,16 @@ navbarPage("TEAM2",
                                )
                                ),
                       
-                      tabPanel("Articles / Year", 
+                      tabPanel("# Articles / Year", 
                                sidebarLayout(      
+                                 titlePanel("# Articles / Year"),  
                                  
                                  # Define the sidebar with one input
                                  sidebarPanel(
-                                   selectInput("paper", "Paper:", 
+                                   selectInput("paper", "Choose a newspaper:", 
                                                choices=colnames(YEARLY_COUNTS)),
                                    hr(),
-                                   helpText("Yearly counts of article")
+                                   helpText("The number of articles of each paper per year")
                                  ),
                                  
                                  # Create a spot for the barplot
@@ -73,10 +75,10 @@ navbarPage("TEAM2",
            
            #tabPanel("Topic modeling"),
            
-           tabPanel("Sentiment analysis",
-                    titlePanel("Sentiment analysis results!"),
+           tabPanel("Sentiment Analysis",
+                    titlePanel("Sentiment Analysis"),
                     sidebarPanel(
-                            helpText("Sentiment analysis Explanations")
+                            helpText("Sentiment analysis results for each paper")
                             # selectInput("region", "Region:",
                             #             choices=colnames(WorldPhones)),
                             # hr(),

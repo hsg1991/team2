@@ -27,7 +27,7 @@ telegraph_year <- format(as.Date(telegraph$publication_date), "%Y")
 years = sort(union(union(union(daily_year, guardian_year), independent_year), telegraph_year))
 
 NUM_PAPERS = 4
-PAPER_NAMES <- c("daily", "independent", "thegaurdian", "telegraph")
+PAPER_NAMES <- c("The_Daily_Mail", "The_Guardian", "The_Independent", "The_Telegraph")
 YEARLY_COUNTS <- matrix(0, length(years), NUM_PAPERS)
 colnames(YEARLY_COUNTS) = PAPER_NAMES
 rownames(YEARLY_COUNTS) = years
