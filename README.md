@@ -19,6 +19,7 @@ Team project description:
 : We performed topic modelling and sentiment analysis on the disaster-related news
 
 # Shiny Server URL
-Exploratory investigation
-Sentiment analysis
+- Exploratory investigation
+- Sentiment analysis
+
 https://paszczak.shinyapps.io/disaster_in_newspapers2/
