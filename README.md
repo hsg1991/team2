@@ -19,20 +19,17 @@ Brian Kangwook Lee, Sanggyu Han (KAIST)
 
   We performed topic modelling and sentiment analysis on the disaster-related news
 
-# Shiny Server URL
+# Visualizations
 
 - Exploratory investigation & Sentiment analysis
 
-  https://paszczak.shinyapps.io/disaster_in_newspapers2/
-
-
-# HTML file viewer
+  https://paszczak.shinyapps.io/disaster_in_newspapers2/ (Shiny server)
 
 - LDA on papers filtered by keyword 'disaster'
 
-  https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html
+  https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html (HTML viewer)
 
 - LDA on papers filtered by category 'environment'
 
-  https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html
+  https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html (HTML viewer)
 
