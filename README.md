@@ -11,9 +11,12 @@ Team project description:
 
 # Research Questions
 - How to find the articles related to environmental disaster?
-We did an exploratory analysis and made some rules to select the disaster-related news
+
+: We did an exploratory analysis and made some rules to select the disaster-related news
+
 - How to analyze the difference between how media report the same issues (e.g. environmental disaster)?
-We performed topic modelling and sentiment analysis on the disaster-related news
+
+: We performed topic modelling and sentiment analysis on the disaster-related news
 
 # Shiny Server URL
 Exploratory investigation
