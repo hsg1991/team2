@@ -13,26 +13,26 @@ Brian Kangwook Lee, Sanggyu Han (KAIST)
 # Research Questions
 - How to find the articles related to environmental disaster?
 
-  : We did an exploratory analysis and made some rules to select the disaster-related news
+  We did an exploratory analysis and made some rules to select the disaster-related news
 
 - How to analyze the difference between how media report the same issues (e.g. environmental disaster)?
 
-  : We performed topic modelling and sentiment analysis on the disaster-related news
+  We performed topic modelling and sentiment analysis on the disaster-related news
 
 # Shiny Server URL
 
 - Exploratory investigation & Sentiment analysis
 
-  : https://paszczak.shinyapps.io/disaster_in_newspapers2/
+  https://paszczak.shinyapps.io/disaster_in_newspapers2/
 
 
 # HTML file viewer
 
 - LDA on papers filtered by keyword 'disaster'
 
-  : https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html
+  https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_disasters.html
 
 - LDA on papers filtered by category 'environment'
 
-  : https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html
+  https://cdn.rawgit.com/hsg1991/team2/b984f080/lda_environment.html
 
