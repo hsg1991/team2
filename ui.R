@@ -71,7 +71,7 @@ navbarPage("TEAM2",
                                  
                                ))),
            
-           tabPanel("Topic modeling"),
+           #tabPanel("Topic modeling"),
            
            tabPanel("Sentiment analysis",
                     titlePanel("Sentiment analysis results!"),
